@@ -20,7 +20,14 @@ var BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4
 window.TrelloPowerUp.initialize({
   'board-buttons': function (t, opts) {
     return t.lists("all").then(function (lists) {
-      console.log(JSON.stringify(lists, null, 2));
+      // console.log(JSON.stringify(lists, null, 2));
+      const data = lists.map(list => {
+        return {
+          name: list.name,
+          count: list.cards.length
+        }
+      })
+      console.log(data);
     });
     // return [{
     //   // we can either provide a button that has a callback function
