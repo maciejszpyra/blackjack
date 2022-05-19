@@ -1,6 +1,25 @@
 var WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-white.svg';
 var BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-black.svg';
 
+// This code sample uses the 'node-fetch' library:
+// https://www.npmjs.com/package/node-fetch
+
+// const boardID = await t.board('id')
+const lists = await t.list("all")
+
+console.log(lists);
+
+
+// const response = await fetch(`https://api.trello.com/1/boards/{id}/lists?key=${API_KEY}&token=${API_TOKEN}`, {
+//   method: 'GET',
+//   headers: {
+//     'Accept': 'application/json'
+//   }
+// })
+
+// const data = await response.text();
+// console.log(data);
+
 var onBtnClick = function (t, opts) {
   console.log('Someone clicked the button');
 };
