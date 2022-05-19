@@ -7,38 +7,6 @@ var BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4
 // const boardID = await t.board('id')
 
 
-async function init() {
-  var t = window.TrelloPowerUp.iframe();
-  const lists = await t.list("all")
-
-  console.log(lists);
-
-  window.TrelloPowerUp.initialize({
-    'board-buttons': function (t, opts) {
-      return [{
-        // we can either provide a button that has a callback function
-        icon: {
-          dark: WHITE_ICON,
-          light: BLACK_ICON
-        },
-        text: 'Callback',
-        callback: () =>{},
-        condition: 'edit'
-      }, {
-        // or we can also have a button that is just a simple url
-        // clicking it will open a new tab at the provided url
-        icon: {
-          dark: WHITE_ICON,
-          light: BLACK_ICON
-        },
-        text: 'URL',
-        condition: 'always',
-        url: 'https://trello.com/inspiration',
-        target: 'Inspiring Boards' // optional target for above url
-      }];
-    }
-  });
-}
 // const response = await fetch(`https://api.trello.com/1/boards/{id}/lists?key=${API_KEY}&token=${API_TOKEN}`, {
 //   method: 'GET',
 //   headers: {
@@ -49,6 +17,31 @@ async function init() {
 // const data = await response.text();
 // console.log(data);
 
-
-
-init();
+window.TrelloPowerUp.initialize({
+  'board-buttons': function (t, opts) {
+    return t.lists("all").then(function (lists) {
+      console.log(JSON.stringify(lists, null, 2));
+    });
+    // return [{
+    //   // we can either provide a button that has a callback function
+    //   icon: {
+    //     dark: WHITE_ICON,
+    //     light: BLACK_ICON
+    //   },
+    //   text: 'Callback',
+    //   callback: () =>{},
+    //   condition: 'edit'
+    // }, {
+    //   // or we can also have a button that is just a simple url
+    //   // clicking it will open a new tab at the provided url
+    //   icon: {
+    //     dark: WHITE_ICON,
+    //     light: BLACK_ICON
+    //   },
+    //   text: 'URL',
+    //   condition: 'always',
+    //   url: 'https://trello.com/inspiration',
+    //   target: 'Inspiring Boards' // optional target for above url
+    // }];
+  }
+});

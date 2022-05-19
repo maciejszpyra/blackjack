@@ -9,7 +9,11 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "index.html",
+      chunks: [""],
+    }),
     new webpack.DefinePlugin({
         'API_KEY': JSON.stringify(process.env.API_KEY),
         'API_TOKEN': JSON.stringify(process.env.API_TOKEN),
