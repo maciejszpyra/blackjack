@@ -1,0 +1,8 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:mszpyra_/blackjack.git",
+  "author": "Jaroslaw Witowski <jwitowski@atlassian.com>",
+  "license": "MIT"
+}
